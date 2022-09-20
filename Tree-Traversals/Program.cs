@@ -16,6 +16,31 @@
         InOrder(root);
     }
 
+
+    static void BreadthFirst(Node root)
+    {
+        Queue<Node> queue = new Queue<Node>();
+
+        queue.Enqueue(root);
+
+        while (queue.Count > 0)
+        {
+            Node node = queue.Dequeue();
+
+            if (node.Left != null)
+            {
+                queue.Enqueue(node.Left);
+            }
+
+            if (node.Right != null)
+            {
+                queue.Enqueue(node.Right);
+            }
+
+            Console.Write($"{node.Data} ");
+        }
+    }
+
     static void PreOrder(Node root)
     {
         Console.Write($"{root.Data} ");
